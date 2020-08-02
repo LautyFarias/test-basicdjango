@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nombre</td>
+            <td>Sexo</td>
+            <td>Edad</td>
+            <td>Fecha de Rescate</td>
+            <td>Adoptante</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if object_list %}
+        {% for mascota in object_list %}
+        <tr>
+            <td>{{ mascota.id }}</td>
+            <td>{{ mascota.nombre }}</td>
+            <td>{{ mascota.sexo }}</td>
+            <td>{{ mascota.edad_aprox }}</td>
+            <td>{{ mascota.fecha_rescate }}</td>
+            <td>{{ mascota.persona.nombre }} {{ mascota.persona.apellido }}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'mascota:editMascota' mascota.id %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'mascota:delMascota' mascota.id %}">Del</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h2>No hay registros de mascotas</h2>
+        {% endif %}
+    </tbody>
+</table>
+<ul class="pagination">
+    <li class="page-item">
+        {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+        {% endif %}
+    </li>
+    <li class="page-item">
+        {% if page_obj.has_next %}
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+    </li>
+</ul>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="row p-3 d-flex justify-content-center align-items-center">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form2.nombre.name}}">{{form2.nombre.label}}</label>
+                {{form2.nombre}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form2.apellido.name}}">{{form2.apellido.label}}</label>
+                {{form2.apellido}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form2.edad.name}}">{{form2.edad.label}}</label>
+                {{form2.edad}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form2.email.name}}">{{form2.email.label}}</label>
+                {{form2.email}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form2.telefono.name}}">{{form2.telefono.label}}</label>
+                {{form2.telefono}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form2.domicilio.name}}">{{form2.domicilio.label}}</label>
+                {{form2.domicilio}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form.nro_mascotas.name}}">{{form.nro_mascotas.label}}</label>
+                {{form.nro_mascotas}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <label for="{{form.razones.name}}">{{form.razones.label}}</label>
+                {{form.razones}}
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Guardar</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
